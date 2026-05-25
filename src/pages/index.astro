@@ -1,0 +1,219 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+    <style>
+      /* ===== BACKGROUND VIDEO ===== */
+      .bg-video {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }
+
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: -1;
+      }
+
+      /* ===== MAIN FRAME ===== */
+      .frame {
+        position: relative;
+        max-width: 900px;
+        margin: 60px auto;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 50px;
+        border-radius: 18px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+        font-family: system-ui, sans-serif;
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.95rem;
+        color: #111;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+        color: #333;
+      }
+
+      section {
+        margin-top: 3rem;
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+        font-size: 1.15rem;
+        color: #111;
+      }
+
+      p {
+        line-height: 1.8;
+        color: #222;
+      }
+
+      /* ===== RESEARCH TAGS ===== */
+      .research-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .research-tags span {
+        padding: 0.6rem 1rem;
+        border-radius: 999px;
+        background: rgba(240, 240, 240, 0.9);
+        border: 1px solid #ddd;
+        font-size: 0.85rem;
+        color: #222;
+      }
+
+      /* ===== LINKS ===== */
+      .home-links {
+        display: flex;
+        flex-wrap: wrap;
+		font-size: 0.9rem;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .home-links a {
+        text-decoration: none;
+        padding: 0.7rem 1.1rem;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        color: #111;
+        background: white;
+        transition: 0.2s ease;
+      }
+
+      .home-links a:hover {
+        transform: translateY(-2px);
+        background: #f5f5f5;
+      }
+
+      @media (max-width: 768px) {
+        .frame {
+          margin: 20px;
+          padding: 30px;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header />
+
+    <!-- 🌊 BACKGROUND VIDEO -->
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="/waves.mp4" type="video/mp4" />
+    </video>
+
+    <div class="overlay"></div>
+
+    <!-- ⬜ CONTENT -->
+    <main class="frame">
+
+      <!-- HERO -->
+      <section class="hero">
+        <h1>Gamze Yıldız</h1>
+
+        <p>
+          MSc Student in Civil Engineering | Middle East Technical University
+        </p>
+
+        <p>
+          Structural Engineering • Offshore Structures • Soil–Structure Interaction
+        </p>
+      </section>
+
+      <!-- RESEARCH -->
+      <section>
+        <h2>Research Interests</h2>
+
+        <div class="research-tags">
+          <span>Earthquake Engineering</span>
+          <span>Finite Element Analysis</span>
+          <span>Structural Dynamics</span>
+          <span>Computational Modeling</span>
+          <span>Seismic Analysis</span>
+          <span>Offshore Engineering</span>
+        </div>
+      </section>
+
+      <!-- LINKS -->
+      <section>
+        <h2>Academic Profiles & Resume</h2>
+
+        <div class="home-links">
+
+          <a href="/cv.pdf" target="_blank">
+            Resume
+          </a>
+
+          <a href="https://scholar.google.com/citations?user=GfnlN2wAAAAJ&hl=tr" target="_blank">
+            Google Scholar
+          </a>
+
+          <a href="https://orcid.org/0009-0009-1953-5746" target="_blank">
+            ORCID: 0009-0009-1953-5746
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/gamze-yıldız-2017"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+
+          <a href="/about">
+            About
+          </a>
+
+
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section>
+        <h2>Contact</h2>
+
+        <div class="home-links">
+          <a href="mailto:gmzee.yldiz@gmail.com">
+            gmzee.yldiz@gmail.com
+          </a>
+		  <a href="mailto:e274436@metu.edu.tr">
+		  e274436@metu.edu.tr
+		  </a>
+        </div>
+      </section>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>
